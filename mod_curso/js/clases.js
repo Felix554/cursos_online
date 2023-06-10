@@ -76,14 +76,25 @@ $.fn.clases = function(id_curso){
 
             const Respuesta = JSON.parse(resp);
             //console.log(Respuesta.cod);
-            alert("PRUEBA6");
+            alert("CHECK PRUEBA3");
             //console.log(Respuesta.msj);
             console.log(Respuesta.check);
             let valores= Respuesta.check;
             //console.log(valores.length);
             for (let i = 0; i < valores.length; i++) {
                 let valor = valores[i];
-                console.log(valor.id);
+
+                if(valor.status === "t"){
+
+                    alert("ID = "+valor.id_curso+"VAlor ="+valor.status);
+
+                    $('#'+valor.id_clase).attr("checked", true);
+                }else{
+
+                    $('#'+valor.id_clase).attr("checked", false);
+
+                }
+                console.log(valor.id_curso);
                 console.log(valor.id_clase);
                 console.log(valor.id_usuario);
                 console.log(valor.status);

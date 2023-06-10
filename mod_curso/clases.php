@@ -853,13 +853,13 @@ include_once('../mod_login/modal.php');
                         <!-- checkbox -->
                         <div class="form-group clearfix col-sm-1">
                           <div class="icheck-success d-inline">
-                            <input type="checkbox" class="btn_check" checked="false" id="1">
+                            <input type="checkbox" class="btn_check" id="1">
                             <label for="1">
                             </label>
                           </div>
                         </div>
                         <div class="col-sm-5">
-                          <div class="product-image-thumb"><video src="cursos/curso1/Video2.mp4"></video></div>
+                          <div class="product-image-thumb"><video src="cursos/curso1/Video1.mp4"></video></div>
                         </div>
                         <div class="col-sm-6">
                           <h6 class="attachment-heading"><a>1Er Video</a></h6>
@@ -876,8 +876,32 @@ include_once('../mod_login/modal.php');
                         <!-- checkbox -->
                         <div class="form-group clearfix col-sm-1">
                           <div class="icheck-success d-inline">
-                            <input type="checkbox" class="btn_check" checked="true" id="2">
+                            <input type="checkbox" class="btn_check" id="2">
                             <label for="2">
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-5" >
+                          <div class="product-image-thumb" ><video src="cursos/curso1/Video2.mp4" muted=""></video></div>
+                          <!--video src="cursos/curso1/Video2.mp4" alt="Product Image" autoplay="false"></video-->
+                          <!--img class="attachment-img" src="../AdminLTE-3.2.0/dist/img/photo1.png" alt="Attachment Image"-->
+                        </div>
+                        <div class="col-sm-6">
+                          <h6 class="attachment-heading"><a>1Lorem ipsum text generator de prueba ds sd sddf sdf sdfs d sewefwefwef</a></h6>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div class="attachment-block clearfix">
+                      <div class="row">
+
+                        <!-- checkbox -->
+                        <div class="form-group clearfix col-sm-1">
+                          <div class="icheck-success d-inline">
+                            <input type="checkbox" class="btn_check" id="3">
+                            <label for="3">
                             </label>
                           </div>
                         </div>
@@ -893,6 +917,32 @@ include_once('../mod_login/modal.php');
 
                       </div>
                     </div>
+
+                    <div class="attachment-block clearfix">
+                      <div class="row">
+
+                        <!-- checkbox -->
+                        <div class="form-group clearfix col-sm-1">
+                          <div class="icheck-success d-inline">
+                            <input type="checkbox" class="btn_check" id="4">
+                            <label for="4">
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-5" >
+                          <div class="product-image-thumb" ><video src="cursos/curso1/Video4.mp4" muted=""></video></div>
+                          <!--video src="cursos/curso1/Video2.mp4" alt="Product Image" autoplay="false"></video-->
+                          <!--img class="attachment-img" src="../AdminLTE-3.2.0/dist/img/photo1.png" alt="Attachment Image"-->
+                        </div>
+                        <div class="col-sm-6">
+                          <h6 class="attachment-heading"><a>1Lorem ipsum text generator de prueba ds sd sddf sdf sdfs d sewefwefwef</a></h6>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    
 
                     <!--div class="attachment-block clearfix">
                       <div class="row">

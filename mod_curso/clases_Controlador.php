@@ -42,28 +42,43 @@ if (isset($_POST['action'])){
                             LEFT JOIN public.clases ON clases.id_curso = cursos.id
                             LEFT JOIN public.clases_usuarios ON clases_usuarios.id_clase = clases.id
                         where
-                            cursos_usuarios.id_usuario = 40 AND cursos_usuarios.id_curso = 1';
+                            cursos_usuarios.id_usuario = 40 AND cursos_usuarios.id_curso = 1 order by id_clase asc';
                     $rs1 = $conn->Execute($SQL);
 
                     //$Cod = "0";
                     //$Valores = "PRUEBA";
+                    $check = '';
                     if ($rs1->RecordCount()>0){
                         
                         //Recorrido de los CHECK
-                        //while (!$rs1->EOF ){
+                        while (!$rs1->EOF ){
 
                             //$respuesta[3] = [$rs1->fields['id']][$rs1->fields['id_clase']] [$rs1->fields['status']];
                             //$respuesta[3] = Array ( 'id'  =>  $rs1->fields['id']);
                             //$respuesta[3] = Array(  "id"       =>      $rs1->fields['id']);
                             //$respuesta[3] = $rs1->fields['id_clase'];
                             //$respuesta[3] =Array ( 'vaca' => "1", 'peso' => 360, 'p_leche_dia' => 40 );
-                            $respuesta[3] =Array (  Array ( 'id' => "1", 'id_clase' => 1, 'id_usuario' => 40, 'status' => true ),
+                            if($check == ''){
+
+                                $check[] = Array ( 'id_curso' =>  $rs1->fields['id_curso'], 'id_clase' => $rs1->fields['id_clase'], 'id_usuario' => $_SESSION['id_usuario'], 'status' => $rs1->fields['status'] );
+                            }else{
+
+                                $check[] = Array ( 'id_curso' =>  $rs1->fields['id_curso'], 'id_clase' => $rs1->fields['id_clase'], 'id_usuario' => $_SESSION['id_usuario'], 'status' => $rs1->fields['status'] );
+                                //$check = array_combine($check, $check2);
+                                //$check[] = array_merge($check, $check2);	
+                            }
+                            
+                            /*$respuesta[3] =Array (  Array ( 'id' => "1", 'id_clase' => 1, 'id_usuario' => 40, 'status' => true ),
                                                     Array ( 'id' => "2", 'id_clase' => 2, 'id_usuario' => 40, 'status' => false ),
                                                     Array ( 'id' => "3", 'id_clase' => 3, 'id_usuario' => 40, 'status' => true ),
                                                     Array ( 'id' => "4", 'id_clase' => 4, 'id_usuario' => 40, 'status' => false )
-                                                );
-                            //$rs1->MoveNext();									
-                        //}
+                                                );*/
+                            $rs1->MoveNext();
+                            //$check = array_merge( $check);						
+                        }
+
+                        $respuesta[3] = $check;
+
                         $respuesta[2]='
                         <div class="attachment-block clearfix">
 
