@@ -6,7 +6,7 @@ $(document).ready(function(){
 
     const urlParams = new URLSearchParams(valores);
 
-//Accedemos a los valores
+    //Accedemos a los valores
     var id_curso = urlParams.get('id_curso');
     //alert(producto)
     $.fn.clases(id_curso);
@@ -31,19 +31,107 @@ $.fn.eventos = function(){
     $('.btn_check').unbind();
     $('.btn_check').click(function(){
 
-       alert($(this).attr('id')) ;
+        //Creamos la instancia
+        const valores = window.location.search;
 
-        if( $('.btn_check').prop('checked') ) {
-            alert($(this).attr('id')+' esta Seleccionado');
+        const urlParams = new URLSearchParams(valores);
+
+        //Accedemos a los valores
+        var id_curso = urlParams.get('id_curso');
+
+        //alert($(this).attr('id'))
+        let id_clase = $(this).attr('id');
+
+        if($(this).attr('id') == 1 ){
+            $('input[type=checkbox]').each(function(){
+                var isChecked = this.checked;
+
+                if($(this).attr('id') == 1 ){
+
+                    alert(isChecked)
+                    $.fn.check_video(isChecked, id_curso, id_clase);
+                }           
+            });
+        }
+        if($(this).attr('id') == 2 ){
+            $('input[type=checkbox]').each(function(){
+                var isChecked = this.checked;
+
+                if($(this).attr('id') == 2 ){
+
+                    alert(isChecked)
+                    $.fn.check_video(isChecked, id_curso, id_clase);
+                }           
+            });
+        }
+        if($(this).attr('id') == 3 ){
+            $('input[type=checkbox]').each(function(){
+                var isChecked = this.checked;
+
+                if($(this).attr('id') == 3 ){
+
+                    alert(isChecked)
+                    $.fn.check_video(isChecked, id_curso, id_clase);
+                }           
+            });
+        }
+        if($(this).attr('id') == 4 ){
+            $('input[type=checkbox]').each(function(){
+                var isChecked = this.checked;
+
+                if($(this).attr('id') == 4 ){
+
+                    alert(isChecked)
+                    $.fn.check_video(isChecked, id_curso, id_clase);
+                }           
+            });
+        }
+
+
+        //var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        //$('#1').prop("checked", "checked");
+        /*checkboxes.forEach(function(checkbox) {
+            //checkbox.addEventListener('click', function() {
+            checkbox.addEventListener('click', function() {
+
+                var isChecked = this.checked;
+                if($(this).attr('id')){
+                    alert("id"+$(this).attr('id'));
+                    //check_video(isChecked, id_curso,id_clase);
+                }
+                
+                // Aquí puedes hacer algo con el valor de isChecked
+            });
+        });*/
+       
+        //var checkbox = document.querySelector('input[type="checkbox"]');
+        //alert("VALOR DE "+checkbox);
+        //var isChecked = checkbox.checked;
+        //let name = document.getElementById("1").element.nodeName;
+        //alert("Elemento = "+name);
+        //$.fn.check_video(id_curso,id_clase);
+        /*Array.from(document.querySelectorAll(".btn_check")).forEach((x) => {
+            
+            //x.onclick = leeForma;
+
+            x.onclick = check_video;
+
+            //;
+            
+
+            //click
+        });*/
+        //El método .is(selector)
+
+        //alert($(this).attr('id')) ;
+
+        //if( $('btn_check').prop('checked') ) {
+            //alert($(this).attr('id')+' esta Seleccionado');
             //$('#1').prop("checked", true);
             //$('#1').prop("checked", false);
-        }else{
-            alert($(this).attr('id')+' NO esta Seleccionado');
-        }
-        //var $image_element = $(this).find('video')
-        //$('.product-image').prop('src', $image_element.attr('src'))
-        //$('.product-image-thumb.active').removeClass('active')
-        //$(this).addClass('active')
+        //}else{
+            //alert($(this).attr('id')+' NO esta Seleccionado');
+        //}
 
     });
 
@@ -59,6 +147,15 @@ $.fn.eventos = function(){
         
 }/*Fin de la función eventos*/
 /*FIN donde se especifican los eventos*/
+
+/*function check_video(isChecked, evento, cfe) {
+
+    alert(isChecked);
+    //let forma = evento.target.parentNode;
+    //alert("forma = "+forma);
+}*/
+
+
 
 $.fn.clases = function(id_curso){
 
@@ -76,7 +173,7 @@ $.fn.clases = function(id_curso){
 
             const Respuesta = JSON.parse(resp);
             //console.log(Respuesta.cod);
-            alert("CHECK PRUEBA3");
+            //alert("CHECK PRUEBA3");
             //console.log(Respuesta.msj);
             console.log(Respuesta.check);
             let valores= Respuesta.check;
@@ -86,7 +183,7 @@ $.fn.clases = function(id_curso){
 
                 if(valor.status === "t"){
 
-                    alert("ID = "+valor.id_curso+"VAlor ="+valor.status);
+                    //alert("ID = "+valor.id_curso+"VAlor ="+valor.status);
 
                     $('#'+valor.id_clase).attr("checked", true);
                 }else{
@@ -94,19 +191,13 @@ $.fn.clases = function(id_curso){
                     $('#'+valor.id_clase).attr("checked", false);
 
                 }
-                console.log(valor.id_curso);
-                console.log(valor.id_clase);
-                console.log(valor.id_usuario);
-                console.log(valor.status);
+                //console.log(valor.id_curso);
+                //console.log(valor.id_clase);
+                //console.log(valor.id_usuario);
+                //console.log(valor.status);
             }
             //console.log(valores);
-            /*Respuesta.check.forEach(function(item) {
-                console.log(item.join());
-            });*/
-           /* for (x of Respuesta.check) {
-                console.log(x.id + ' ' + x.id_clase);
-              }*/
-            //Respuesta_check = json_encode(Respuesta.check);
+            
             //console.log(Respuesta_check);
             //$('#lista_video').html(Respuesta.valores);
             if(Respuesta.cod == 0){
@@ -134,19 +225,28 @@ $.fn.clases = function(id_curso){
 	});
 }
 
-/*$.fn.clases = function(id_curso){
+$.fn.check_video = function(check, id_curso, id_clase){
+    //, id_curso, id_clase
+    //alert("CKECK = "+ check)
+    //alert("ID CURSO = "+ id_curso)
+    //alert("IDE CLASE = "+id_clase)
 
+
+    //exit()
+    //let forma = evento.target.parentNode;
+
+    //alert("evento = "+forma);
     url = window.location.origin;//obtiene el punto de partida o el nombre de la pagina, mas no en donde estamos ubicados
-    //alert("INGRESO");
+    //alert("check_video"+id_clase);
 	//var url		= url+'/login_Controlador';
-    //
-    var data 	= '&id_curso='+'id_curso'+'&action='+'buscar_clases';
+    
+    var data 	= '&id_curso='+id_curso+'&id_clase='+id_clase+'&check='+check+'&action='+'check_video';
 	$.ajax({
 		url: url+'/Github/cursos_online/mod_curso/clases_Controlador.php',
 		type: 'POST',
 		data: data,
 		success: function(resp) {
-            console.log(resp);
+            //console.log(resp);
             const Respuesta = JSON.parse(resp);
             console.log(Respuesta.cod);
 
@@ -161,7 +261,7 @@ $.fn.clases = function(id_curso){
                 $('#msj_respuesta').find('.modal-body').text(Respuesta.msj);
                 $('#msj_respuesta').modal('show');//Aqui habilito el modal para que lo muestre*/
 
-            //}else{
+            }else{
 
                /* $( "#div_header" ).addClass( "alert-success" );
                 $('#msj_respuesta').find('.modal-title').text("ALERTA!");
@@ -172,11 +272,11 @@ $.fn.clases = function(id_curso){
                 //setTimeout( function() { window.location.href = "../index"; }, 1000 );
         
                     //window.location.href = "../mod_login/olvido_contra.php";
-            //}
+            }
           
-		//}
-	//});
-//}*/
+		}
+	});
+}
 
 $.fn.cerrarSesion = function(){
 

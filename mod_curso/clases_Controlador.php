@@ -21,7 +21,34 @@ if (isset($_POST['action'])){
 	$Msj = "";
 	$Valores ="";
 	switch($_POST["action"]){
-		
+		case 'check_video':
+            # code...
+            $id_curso		= $_POST["id_curso"];//genera un array desde el string
+                    
+            $SQL='UPDATE public.clases_usuarios
+                    SET status='.$_POST['check'].'
+                WHERE id_clase='.$_POST['id_clase'].'and id_usuario= '.$_SESSION['id_usuario'];
+            $rs1 = $conn->Execute($SQL);
+
+            //$Cod = "0";
+            //$Valores = "PRUEBA";
+            //$check = '';
+                    if ($rs1){
+
+                        $respuesta[0]= '1';
+			            $respuesta[1]= 'Video visualizado';
+
+                    }else{
+
+                        
+                        $respuesta[0]= '0';
+			            $respuesta[1]= 'Error al actualizar la lista de Video';
+                    }
+
+            echo json_encode(array('cod'=>$respuesta[0],'msj'=>$respuesta[1]));
+
+        break;
+
         case'buscar_clases':
 			
             //if ($_SERVER['REQUEST_METHOD'] == "GET") {
@@ -111,14 +138,7 @@ if (isset($_POST['action'])){
                         $respuesta[0]= '0';
 			            $respuesta[1]= 'No hay listado';
                     }
-        
-              
-                
-        
             //}
-
-			
-			
 			echo json_encode(array('cod'=>$respuesta[0],'msj'=>$respuesta[1],'valores'=>$respuesta[2],'check'=>$respuesta[3]));
 		break;
 
