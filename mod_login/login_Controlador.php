@@ -26,7 +26,7 @@ include_once('../include/adodb5/adodb.inc.php');
 
 $conn = NewADOConnection('postgres');
 $conn->connect('127.0.0.1','postgres','root','cursos_online');
-$conn->debug = false;
+$conn->debug = true;
 /*$conn2 = adoNewConnection('postgres');
 $conn2->PConnect('127.0.0.1','postgres','root','entes');
 $conn2->debug = false;*/
@@ -267,50 +267,7 @@ if (isset($_POST['action'])){
 					
 			// ./Segunda opcion TELEFONO
 				$preguntar = shuffle_assoc($Preguntas);
-					/*
-					//Validacion
-					if($_POST['respuesta1']==1 && $condition_question_1)$valida++;
-								
-					if($_POST['respuesta1']==2 && !$condition_question_1)$valida++;
-
-
-					if ($valida==2){
-						//if($_SESSION['nacionalidad']=='1')$nacionalidad='V';
-						//if($_SESSION['nacionalidad']=='2')$nacionalidad='E';
-						$SQL="UPDATE public.personas SET clave =  md5('".trim($_REQUEST['ced_afiliado'])."') WHERE cedula = '".$_SESSION["VALIDUSER"]."'";	
-						$rs= $conn->Execute($SQL);
-
-							if($rs){
-								$Cod = "1";
-								$Msj = "Su nueva contrase\u00F1a de acceso es:".$_REQUEST['ced_afiliado'];
-							?>
-								<script>
-								//alert("Su nueva contrase\u00F1a de acceso es: <?=$_SESSION['cedula']?> \n y por medida de seguridad debe cambiarla al ingresar al sistema"); 
-								//window.location="/ceet/mod_login/login.php";
-								</script> 
-								<?
-							}							
-										
-					}else{
-							$_SESSION['intentos']=$_SESSION['intentos'] + 1;
-							//if($_SESSION['intentos']>3){	
-								$Cod = "0";
-								$Msj = "Su registro ha sido bloqueado.... ";
-						?>
-						<script>
-						//alert("su registro ha sido bloqueado.... ");	
-						//window.location="/ceet/mod_login/login.php";						
-						</script> <?
-											
-							//}else{
-						?>
-						<script>
-						//alert("Respuestas Incorrectas, por favor verifique e intente de nuevo. Recuerde que al ingresar las respuesta erradas en tres (3) intentos consecutivos, su acceso será bloqueado por medidas de seguridad. ");							
-						</script>
-						<?
-							//}
-						}	*/		
-			/*FIN >>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+					
 					$Cod = "1";
 					$Msj = "Usuario Inscrito en SNILPD";
 
@@ -444,11 +401,6 @@ if (isset($_POST['action'])){
 				if ($rs1->RecordCount()>0){
 					
 					$Valores.=trim($rs1->fields['primer_nombre'])."|";
-					//$Valores.=trim($rs1->fields['segundo_nombre'])."|";
-					//$Valores.=trim($rs1->fields['primer_apellido'])."|";
-					//$Valores.=trim($rs1->fields['segundo_apellido'])."|";
-					//$Valores.=trim($rs1->fields['sexo'])."|";
-
 					//$data= trim($rs1->fields['fechanac']);
 					//$Valores.= date($data,"d-m-Y");
 					//$Valores.= trim($rs1->fields['fechanac']);
@@ -484,6 +436,7 @@ if (isset($_POST['action'])){
 			}
 
 			if($error_validar === 0){
+
 				$SQL0="select * from public.usuarios where cedula='".$_REQUEST['nacionalidad'].$_REQUEST['ced_afiliado']."'"; 
 				$rs0= $conn->Execute($SQL0);
 
@@ -494,8 +447,8 @@ if (isset($_POST['action'])){
 					
 				}else{
 				
-					//<<<<<<<<<<<<<<<<<<<
-					$cedula=$_POST['nacionalidad'].$_POST['ced_afiliado'];
+					//<<<<<<<<<<<<<<<<<<<$_POST['nacionalidad'].
+					$cedula=$_POST['ced_afiliado'];
 					//$clave=generar_clave();
 					$clave=$_POST['ced_afiliado'];
 					$clave_md5=md5($clave);
@@ -522,7 +475,7 @@ if (isset($_POST['action'])){
 						)
 						VALUES 
 						(
-							'".strtoupper($cedula)."',
+							'".strtoupper($_POST['nacionalidad'].$cedula)."',
 							'".strtoupper($_POST['nombre_afiliado1'])."',
 							'".strtoupper($_POST['nombre_afiliado2'])."',
 							'".strtoupper($_POST['apellido_afiliado1'])."',
@@ -540,8 +493,46 @@ if (isset($_POST['action'])){
 
 					if ($rs){
 
-						$Cod = "1"; //NEGATIVO y No TRAE RESULTADOS
-						$Msj = "Registro Exitoso! Su contraseña es: ".$cedula;
+						$sql2 = "SELECT cedula, id, nacionalidad, sexo, telefono, f_nacimiento, correo, clave, tipo_usuario, status, primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, dfecha_creacion, dfecha_actualizacion
+						FROM public.usuarios where cedula='".strtoupper($_POST['nacionalidad'].$cedula)."'";
+
+						$rs2 = $conn->Execute($sql2);
+
+
+						if ($rs2){
+							//INSERT CURSOS por USUARIO
+							//."ID =".$rs2->fields['id']
+							$sql3 = "INSERT INTO public.cursos_usuarios(id_curso, id_usuario, status) VALUES ( 1, ".$rs2->fields['id'].", 't')";
+							$rs3 = $conn->Execute($sql3);
+
+							$sql4 = "INSERT INTO public.cursos_usuarios(id_curso, id_usuario, status) VALUES ( 2, ".$rs2->fields['id'].", 't')";
+							$rs4 = $conn->Execute($sql4);
+							
+							//INSERT CLASES POR USUARIO
+							$sql5 = "INSERT INTO public.clases_usuarios(id_clase, id_usuario, status)	VALUES ( 1, ".$rs2->fields['id'].", 'f')";
+							$rs5 = $conn->Execute($sql5);
+
+							$sql6 = "INSERT INTO public.clases_usuarios(id_clase, id_usuario, status)	VALUES ( 2, ".$rs2->fields['id'].", 'f')";
+							$rs6 = $conn->Execute($sql6);
+
+							$sql7 = "INSERT INTO public.clases_usuarios(id_clase, id_usuario, status)	VALUES ( 3, ".$rs2->fields['id'].", 'f')";
+							$rs7 = $conn->Execute($sql7);
+
+							$sql8 = "INSERT INTO public.clases_usuarios(id_clase, id_usuario, status)	VALUES ( 4, ".$rs2->fields['id'].", 'f')";
+							$rs8 = $conn->Execute($sql8);
+
+							$sql9 = "INSERT INTO public.clases_usuarios(id_clase, id_usuario, status)	VALUES ( 5, ".$rs2->fields['id'].", 'f')";
+							$rs9 = $conn->Execute($sql9);
+
+							$sql10 = "INSERT INTO public.clases_usuarios(id_clase, id_usuario, status)	VALUES ( 6, ".$rs2->fields['id'].", 'f')";
+							$rs10 = $conn->Execute($sql10);
+
+							$Cod = "1"; //NEGATIVO y No TRAE RESULTADOS
+							$Msj = "Registro Exitoso! Su contraseña".$cedula;
+						}
+
+						//$Cod = "1"; //NEGATIVO y No TRAE RESULTADOS
+						//$Msj = "Registro Exitoso! Su contraseña es: ".$cedula;
 
 					}else{
 						$Cod = "0"; //NEGATIVO y No TRAE RESULTADOS

@@ -314,89 +314,6 @@ include_once('../mod_login/modal.php');
                   </li>
                 </ul>
               </li>
-              <!--li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Login & Register v2
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="../examples/login-v2.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Login v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../examples/register-v2.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Register v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../examples/forgot-password-v2.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Forgot Password v2</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="../examples/recover-password-v2.html" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Recover Password v2</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/lockscreen.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lockscreen</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/legacy-user-menu.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Legacy User Menu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/language-menu.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Language Menu</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/404.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 404</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/500.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Error 500</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/pace.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pace</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../examples/blank.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Blank Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../../starter.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Starter Page</p>
-                </a>
-              </li-->
             </ul>
           </li>
           <li class="nav-item">
@@ -468,7 +385,7 @@ include_once('../mod_login/modal.php');
                             <div class="row">
                               <div class="col-sm-4">
                                   <div class="position-relative p-1 bg-gray" style="min-height: 180px;">
-                                  <img src="../AdminLTE-3.2.0/dist/img/photo3.jpg" alt="Photo 3" class="btn img-fluid img_curso" id_curso="1">
+                                  <img src="cursos/curso1/img/curso1.jpg" alt="Photo 3" class="btn img-fluid img_curso" id_curso="1">
                                   <div class="ribbon-wrapper">
                                       <div class="ribbon bg-primary">
                                       Curso #1
@@ -486,7 +403,7 @@ include_once('../mod_login/modal.php');
                                   </div>
                                   </div>
                               </div>
-                              <div class="col-sm-4">
+                              <!--div class="col-sm-4">
                                   <div class="position-relative p-3 bg-gray" style="min-height: 180px;">
                                   <img src="cursos/curso1/img/curso1.jpg" alt="Photo 3" class="btn img-fluid img_curso" id_curso="1">
                                   <div class="ribbon-wrapper ribbon-xl">
@@ -495,41 +412,10 @@ include_once('../mod_login/modal.php');
                                       </div>
                                   </div>
                                   </div>
-                              </div>
+                              </div-->
                             </div>
 
-                            <div class="row mt-4">
-                              <div class="col-sm-4">
-                                  <div class="position-relative">
-                                  <img src="../AdminLTE-3.2.0/dist/img/photo1.png" alt="Photo 1" class="img-fluid">
-                                  <div class="ribbon-wrapper ribbon-lg">
-                                      <div class="ribbon bg-success text-lg">
-                                      Ribbon
-                                      </div>
-                                  </div>
-                                  </div>
-                              </div>
-                              <div class="col-sm-4">
-                                  <div class="position-relative">
-                                  <img src="../AdminLTE-3.2.0/dist/img/photo2.png" alt="Photo 2" class="img-fluid">
-                                  <div class="ribbon-wrapper ribbon-xl">
-                                      <div class="ribbon bg-warning text-lg">
-                                      Ribbon
-                                      </div>
-                                  </div>
-                                  </div>
-                              </div>
-                              <div class="col-sm-4">
-                                  <div class="position-relative" style="min-height: 180px;">
-                                  <img src="../AdminLTE-3.2.0/dist/img/photo3.jpg" alt="Photo 3" class="img-fluid">
-                                  <div class="ribbon-wrapper ribbon-xl">
-                                      <div class="ribbon bg-danger text-xl">
-                                      PRUEBA
-                                      </div>
-                                  </div>
-                                  </div>
-                              </div>
-                            </div>
+                         
                         </div>
                         <!-- /.card-body -->
                         </div>
@@ -550,7 +436,7 @@ include_once('../mod_login/modal.php');
       <!--/div-->
     <!--/section-->
     <!-- /.content -->
-  <!--/div>
+  <!--/div-->
   <!-- /.content-wrapper -->
 
     <footer class="main-footer">
@@ -586,30 +472,5 @@ include_once('../mod_login/modal.php');
 <script src="../AdminLTE-3.2.0/dist/js/demo.js"></script-->
 <!-- AdminLTE for demo purposes -->
 <script src="js/cursos.js"></script>
-<script>
-  //Script para el cambio de Video
-  /*$(document).ready(function() {
-    $('.product-image-thumb').on('click', function () {
-      var $image_element = $(this).find('video')
-      $('.product-image').prop('src', $image_element.attr('src'))
-      $('.product-image-thumb.active').removeClass('active')
-      $(this).addClass('active')
-    })
-
-    $('.product-image-thumb').on('click', function () {
-      var $image_element = $(this).find('')
-      $('.product-image').prop('src', $image_element.attr('src'))
-      $('.product-image-thumb.active').removeClass('active')
-      $(this).addClass('active')
-    })
-
-  });*/
-
-  /*$(function () {
-    $("input[data-bootstrap-switch]").each(function(){
-      $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    })
-  })*/
-</script>
 </body>
 </html>

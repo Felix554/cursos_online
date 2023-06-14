@@ -146,7 +146,7 @@ include_once('modal.php');
                             <option value="E">E</option>
                         </select>
                         <span><i class="" style="padding:5px; color: gray"></i></span>
-                        <input type="text" style="width: 45%;" class="form-control" placeholder="Cédula de Identidad"  name="ced_afiliado" id="ced_afiliado" maxlength="11" required pattern="[0-9]{7,11}" data-bs-toggle="tooltip" data-bs-placement="right" title="Cédula">
+                        <input type="text" style="width: 45%;" class="form-control" placeholder="Cédula de Identidad"  name="ced_afiliado" id="ced_afiliado" maxlength="8" required pattern="[0-9]{7,11}" data-bs-toggle="tooltip" data-bs-placement="right" title="Cédula">
                     </div>
                     <!--input type="text" class="form-control" name="nombre" id="nombre" style="width:100%" required placeholder="Nombre" disabled>
                     <input type="text" class="form-control" name="apellido" id="apellido" style="width:100%" required placeholder="Apellido" disabled  id="btn_validacion"-->
@@ -192,7 +192,7 @@ include_once('modal.php');
                                 <option value="E">E</option>
                             </select>
                             <span><i class="" style="padding:5px; color: gray"></i></span>
-                            <input type="text" style="width: 45%;" class="form-control" placeholder="Cédula de Identidad"  name="ced_afiliado" id="ced_afiliado" onBlur="usuario_ya_registrado(nacionalidad.value+'|'+ced_afiliado.value);" maxlength="11" required pattern="[0-9]{6,11}">
+                            <input type="text" style="width: 45%;" class="form-control" placeholder="Cédula de Identidad"  name="ced_afiliado" id="ced_afiliado" onBlur="usuario_ya_registrado(nacionalidad.value+'|'+ced_afiliado.value);" maxlength="8" required pattern="[0-9]{6,11}">
                             <!--button type="button" class="btn btn-secondary float-right" data-bs-toggle="tooltip" data-bs-placement="right" onclick="consultar_saime(nacionalidad.value+'|'+ced_afiliado.value);" title="Buscar">B</button-->
                             
                         </div>
